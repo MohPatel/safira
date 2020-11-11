@@ -1,0 +1,12 @@
+<ul>
+  <li><%= link_to 'Home', controller: 'welcome' %></li>
+  <li><%= link_to 'About', welcome_about_path %></li>
+</ul>
+<br>
+<br>
+  <% if @products.image.present? %>
+   <%= image_tag @products.image %>
+   <%end%>
+  <p><b>Product:</b>  <%= @products.name%> </p>
+  <p><b>Description:</b>  <%=@products.description %> </p>
+  <p><b>Price:</b>  <%= @products.price%> </p>

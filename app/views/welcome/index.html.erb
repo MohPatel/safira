@@ -16,6 +16,7 @@
   <% @categories.each do |c|%>
   <tr>
     <td><%= c.name %></td>
+    <td class='button' ><ul><li><%=link_to 'Show', category_index_path(c)%></li></ul></td>
     </tr>
   <% end %>
 </table>
