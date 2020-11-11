@@ -9,6 +9,9 @@
 NUMBER_OF_CATEGORY = 5
 PRODUCTS_PER_CATEGORY=5
 
+Product.delete_all
+Category.delete_all
+AdminUser.delete_all
 
 NUMBER_OF_CATEGORY.times do
   category = Category.create(name: Faker::Name.unique.name)
@@ -24,4 +27,7 @@ NUMBER_OF_CATEGORY.times do
 
 end
 puts "created #{Category.count} Categories"
-puts "Created #{Product.count} Products"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+puts "Created #{Product.count} Products"
+
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
