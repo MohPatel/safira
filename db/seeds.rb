@@ -23,6 +23,8 @@ NUMBER_OF_CATEGORY.times do
       sale: rand(1..3),
       priceonsale: Faker::Commerce.price
     )
+    downloaded_image = URI.open("https://source.unsplash.com/600x600/?watch")
+    product.image.attach(io: downloaded_image, filename: "m-#{rand(1..50)}.jpg")
   end
 
 end

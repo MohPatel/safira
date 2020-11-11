@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 gem 'faker'
+gem 'image_processing'
 gem 'kaminari'
 gem 'activeadmin' #Admin Dashboard
 gem 'devise' #Admin Authorization
