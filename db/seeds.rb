@@ -9,9 +9,9 @@
 NUMBER_OF_CATEGORY = 5
 PRODUCTS_PER_CATEGORY=5
 
-Product.delete_all
-Category.delete_all
-AdminUser.delete_all
+Product.destroy_all
+Category.destroy_all
+AdminUser.destroy_all
 
 NUMBER_OF_CATEGORY.times do
   category = Category.create(name: Faker::Name.unique.name)
@@ -26,6 +26,34 @@ NUMBER_OF_CATEGORY.times do
   end
 
 end
+
+# url = 'http://makeup-api.herokuapp.com/api/v1/products.json'
+# uri = URI(url)
+# response = Net::HTTP.get(uri)
+# categories = JSON.parse(response)
+
+# # puts url + "?=may"
+# categories.each do |b|
+#   # puts "#{b["brand"]}"
+#   category = Category.find_or_create_by(name: b["brand"])
+#   if category&.valid?
+#     url = "http://makeup-api.herokuapp.com/api/v1/products.json" + "?brand=" + "#{b["brand"]}"
+#     uri = URI(url)
+#     response = Net::HTTP.get(uri)
+#     products = JSON.parse(response)
+#     # puts url
+#     products.each do |p|
+#       product = category.products.create(name: p["product_type"], price: p["price"],description: p["description"],sale: rand(1..3), priceonsale: Faker::Commerce.price )
+#      end
+#     end
+#   end
+
+
+
+
+
+
+
 puts "created #{Category.count} Categories"
 puts "Created #{Product.count} Products"
 
