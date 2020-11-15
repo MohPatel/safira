@@ -1,0 +1,21 @@
+<ul>
+  <li><%= link_to 'Home', controller: 'welcome' %></li>
+  <li><%= link_to 'About', welcome_about_path %></li>
+</ul>
+<br>
+<br>
+<% if @products.nil?  %>
+<p>There is no any products</p>
+<% else %>
+<table>
+<tr>
+ <th>Product</th>
+  </tr>
+<% @products.each do |p|%>
+  <tr>
+    <td><%= link_to p.name, product_path(p.id) %></td>
+     <td><%=link_to 'Back', root_path %></td>
+    </tr>
+  <% end %>
+</table>
+ <% end %>

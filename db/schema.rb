@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_185715) do
+ActiveRecord::Schema.define(version: 2020_11_15_233443) do
+
+  create_table "abouts", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "contactno"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"

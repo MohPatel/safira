@@ -1,6 +1,15 @@
 <ul>
   <li><%= link_to 'Home', controller: 'welcome' %></li>
   <li><%= link_to 'About', welcome_about_path %></li>
+  <li>
+  <%= form_with(url: search_category_index_path, method: :get, local: true) do |form|%>
+  <%= text_field_tag(:keywords, nil, placeholder: 'Serach for Products') %>
+
+  <%= form.collection_select :category_id, @categories, :id,:name,include_blank: true %>
+
+  <%= submit_tag("Search") %>
+  <% end %>
+  </li>
 </ul>
 <br>
 <br>
