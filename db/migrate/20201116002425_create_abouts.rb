@@ -1,10 +1,8 @@
 class CreateAbouts < ActiveRecord::Migration[6.0]
   def change
     create_table :abouts do |t|
-      t.string :name
-      t.string :address
-      t.string :contactno
-      t.string :email
+      t.string :titile
+      t.string :content
 
       t.timestamps
     end

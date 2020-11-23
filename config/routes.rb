@@ -2,16 +2,14 @@ Rails.application.routes.draw do
   get 'product/index'
   get 'category/index'
   get 'welcome/index'
+  get 'welcome/contact'
   get 'product/index'
   get 'product/show'
   get 'product/filter'
   get 'welcome/about'
-  root 'welcome#index'
+  root 'product#index'
   resources :product
 
-  resources :product do
-    post 'filter', on: :collection
-  end
 
   resources :category, only: %i[index show] do
     collection do

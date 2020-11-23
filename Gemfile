@@ -9,6 +9,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'sqlite3', '~> 1.4'
 gem 'faker'
 gem 'image_processing'
+gem "breadcrumbs_on_rails"
 gem 'kaminari'
 gem 'activeadmin' #Admin Dashboard
 gem 'devise' #Admin Authorization

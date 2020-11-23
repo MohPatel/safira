@@ -1,12 +1,15 @@
 <ul>
-  <li><%= link_to 'Home', controller: 'welcome' %></li>
+  <li><%= link_to 'Home', controller: 'product' %></li>
+  <li><%= link_to 'Category',welcome_index_path%></li>
   <li><%= link_to 'About', welcome_about_path %></li>
-</ul>
+   <li><%= link_to 'Contact', welcome_contact_path %></li>
+   </ul>
 <br>
+<%= render_breadcrumbs %>
 <br>
   <% if @products.image.present? %>
-   <%= image_tag @products.image.variant(resize_to_limit: [500, 500]) %>
+   <%= image_tag @products.image.variant(resize_to_limit: [500, 500]).processed %>
    <%end%>
   <p><b>Product:</b>  <%= @products.name%> </p>
   <p><b>Description:</b>  <%=@products.description %> </p>
-  <p><b>Price:</b>  <%= @products.price%> </p>
+  <p><b>Price:</b>  <%= number_to_currency @products.price%> </p>

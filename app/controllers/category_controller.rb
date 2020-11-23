@@ -1,4 +1,7 @@
 class CategoryController < ApplicationController
+  add_breadcrumb "home", :root_path
+  add_breadcrumb "category", :root_path
+  add_breadcrumb "products", :category_index_path
   def index
     @products = Product.includes(:category).all.page(params[:page])
   end
