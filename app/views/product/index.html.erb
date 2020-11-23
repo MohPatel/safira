@@ -11,7 +11,11 @@
 <br>
 <div id = "pagi"><%= paginate @products %></div>
 <br>
-<p>You have visited this page <%= pluralize visit_count,'time'%></p>
+
+
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<%end%>
 <table>
   <tr>
    <th>Product</th>
@@ -22,7 +26,17 @@
   <tr>
     <td><%= product.name %></td>
     <td><%=link_to 'Show', product_path(product.id)%></td>
-    <td><%=link_to 'Back', root_path %></td>
+    <td>
+    <% if cart.include?(product)%>
+      <%= button_to cart_path(product), method: :delete do%>
+      Remove from cart
+      <%end%>
+    <%else%>
+      <%= form_with url: cart_index_path,method: :post do %>
+      <%= hidden_field_tag(:id,product.id)%>
+      <%= button_tag 'Add to cart'%><%end%>
+      </td>
    </tr>
+ <% end %>
   <% end %>
 </table>
