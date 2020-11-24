@@ -1,9 +1,4 @@
-<ul>
-  <li><%= link_to 'Home', controller: 'product' %></li>
-  <li><%= link_to 'Category',welcome_index_path%></li>
-  <li><%= link_to 'About', welcome_about_path %></li>
-   <li><%= link_to 'Contact', welcome_contact_path %></li>
- </ul>
+
 <br>
 
 <br>
@@ -11,11 +6,12 @@
 <br>
 <div id = "pagi"><%= paginate @products %></div>
 <br>
-
+<br>
 
 <% if flash[:notice] %>
 <p><%= flash[:notice] %></p>
 <%end%>
+
 <table>
   <tr>
    <th>Product</th>
@@ -28,12 +24,15 @@
     <td><%=link_to 'Show', product_path(product.id)%></td>
     <td>
     <% if cart.include?(product)%>
+      <%= number_field_tag(:quantity, session[:quantity], placeholder:session[:quantity], min: 1, max: 10 ) %>
       <%= button_to cart_path(product), method: :delete do%>
       Remove from cart
       <%end%>
     <%else%>
       <%= form_with url: cart_index_path,method: :post do %>
       <%= hidden_field_tag(:id,product.id)%>
+     <%= number_field_tag(:quantity, nil, placeholder:session[:quantity], min: 1, max: 10 ) %>
+
       <%= button_tag 'Add to cart'%><%end%>
       </td>
    </tr>

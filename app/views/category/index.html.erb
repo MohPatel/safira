@@ -1,15 +1,10 @@
-<ul>
-  <li><%= link_to 'Home', controller: 'product' %></li>
-  <li><%= link_to 'Category',welcome_index_path%></li>
-  <li><%= link_to 'About', welcome_about_path %></li>
-   <li><%= link_to 'Contact', welcome_contact_path %></li>
-</ul>
+
 <br>
 <%= render_breadcrumbs %>
 <br>
 <h2>Safira Watches</h2>
 <br>
-<%= paginate @products %>
+
 <br>
 <table>
   <tr>

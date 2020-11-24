@@ -11,7 +11,18 @@
 
   <body>
   <header>
+  <ul>
+  <li><%= link_to 'Home', controller: 'product' %></li>
+  <li><%= link_to 'Category',welcome_index_path%></li>
+  <li><%= link_to image_tag("shopping_trolley.png",width: 25), controller: 'product' %>
+  <%if cart.present? %>
+  <sup><%=cart.size%></sup>
+  <%end%>
+  </li>
+  <li><%= link_to 'About', welcome_about_path %></li>
+  <li><%= link_to 'Contact', welcome_contact_path %></li>
 
+</ul>
   </header>
 <main>
     <%= yield %>
