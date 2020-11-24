@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'product/show'
   get 'product/filter'
   get 'welcome/about'
+  get 'cart/show'
   root 'product#index'
   resources :product
 

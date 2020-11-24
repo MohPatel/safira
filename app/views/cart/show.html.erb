@@ -1,0 +1,22 @@
+<%if cart.present? %>
+<table>
+  <tr>
+   <th>Product</th>
+   <th></th>
+   <th></th>
+  </tr>
+<% cart.each do |product|%>
+<tr>
+    <td><%= product.name %></td>
+    <td><%= form_with url: cart_index_path,method: :post do %>
+      <%= hidden_field_tag(:id,product.id)%>
+     <%= number_field_tag(:quantity, nil, placeholder:session[:quantity], min: 1, max: 10 ) %>
+
+      <%= button_tag 'Add Item'%><%end%></td>
+    <td>
+</tr>
+<%end%>
+</table>
+<%else%>
+<p>There is no item in cart
+<%end%>

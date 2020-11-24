@@ -21,4 +21,8 @@ class CartController < ApplicationController
     flash[:notice] = "#{product.name} are removed into cart"
     redirect_to root_path
   end
+
+  def show
+
+  end
 end
