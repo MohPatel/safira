@@ -1,0 +1,20 @@
+<br>
+<br>
+<h2>Address details </h2>
+<p>Name: <%= session[:name]%> </p>
+<p>Email: <%= session[:email]%> </p>
+<p>Address: <%= session[:address]%> </p>
+<h2>Product Details</h2>
+<%if cart.present? %>
+ <tr>
+   <th>Product</th>
+   <th></th>
+   <th></th>
+  </tr>
+<% cart.each do |product|%>
+<tr>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+    </tr>
+    <%end%>
+   <%end%>

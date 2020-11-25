@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'order/index'
   get 'product/index'
   get 'category/index'
   get 'welcome/index'
@@ -8,15 +9,18 @@ Rails.application.routes.draw do
   get 'product/filter'
   get 'welcome/about'
   get 'cart/show'
-  root 'product#index'
-  resources :product
 
+  get 'order/invoice'
+  root 'product#index'
+
+resources :product
 
   resources :category, only: %i[index show] do
     collection do
       get "search"
     end
   end
+  resources :order, only: %i[create index]
   resources :cart, only: %i[create destroy]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

@@ -31,7 +31,6 @@
     <%else%>
       <%= form_with url: cart_index_path,method: :post do %>
       <%= hidden_field_tag(:id,product.id)%>
-     <%= number_field_tag(:quantity, nil, placeholder:session[:quantity], min: 1, max: 10 ) %>
 
       <%= button_tag 'Add to cart'%><%end%>
       </td>

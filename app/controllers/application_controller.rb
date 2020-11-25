@@ -5,6 +5,10 @@ helper_method :cart
   def initialize_session
     session[:quantity] ||= 0
     session[:shopping_cart] ||= []
+    session[:name] ||= ""
+    session[:email] ||= ""
+    session[:address] ||= ""
+
   end
 
   def cart

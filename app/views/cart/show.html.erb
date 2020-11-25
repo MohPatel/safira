@@ -8,14 +8,15 @@
 <% cart.each do |product|%>
 <tr>
     <td><%= product.name %></td>
-    <td><%= form_with url: cart_index_path,method: :post do %>
+    <td><%= form_with url: cart_show_path,method: :post do %>
       <%= hidden_field_tag(:id,product.id)%>
-     <%= number_field_tag(:quantity, nil, placeholder:session[:quantity], min: 1, max: 10 ) %>
 
-      <%= button_tag 'Add Item'%><%end%></td>
+
+      <%= button_tag 'Increase'%><%end%></td>
     <td>
 </tr>
 <%end%>
+<%= link_to "Confirm Order",order_index_path%>
 </table>
 <%else%>
 <p>There is no item in cart
