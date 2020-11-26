@@ -2,11 +2,11 @@
 <br>
 <br>
 
-<%= form_with(url: order_invoice_path, method: :get, local: true) do |form|%>
+<%= form_with(url: order_create_path, method: :get, local: true) do |form|%>
   <%= text_field_tag(:name, nil, placeholder: 'Name',required: true) %>
 <%= text_field_tag(:email, nil, placeholder: 'Email',required: true) %>
 <%= text_field_tag(:address, nil, placeholder: 'Address',required: true) %>
   <%= form.collection_select :province_id, @provinces, :id,:name, required: true%>
 
-  <%= submit_tag('Invoice') %>
+  <%= submit_tag('Processed To Checkout') %>
   <%end%>

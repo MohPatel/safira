@@ -11,6 +11,7 @@ gem 'faker'
 gem 'image_processing'
 gem "breadcrumbs_on_rails"
 gem 'kaminari'
+
 gem 'activeadmin' #Admin Dashboard
 gem 'devise' #Admin Authorization
 # Use Puma as the app server

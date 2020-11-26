@@ -8,7 +8,7 @@ helper_method :cart
     session[:name] ||= ""
     session[:email] ||= ""
     session[:address] ||= ""
-
+    session[:customer] = ""
   end
 
   def cart

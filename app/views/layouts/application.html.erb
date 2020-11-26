@@ -12,7 +12,7 @@
   <body>
   <header>
   <ul>
-  <li><%= link_to 'Home', controller: 'product' %></li>
+  <li><%= link_to 'Home', product_index_path %></li>
   <li><%= link_to 'Category',welcome_index_path%></li>
   <li><%= link_to image_tag("shopping_trolley.png",width: 25), cart_show_path %>
   <%if cart.present? %>
@@ -21,9 +21,17 @@
   </li>
   <li><%= link_to 'About', welcome_about_path %></li>
   <li><%= link_to 'Contact', welcome_contact_path %></li>
+  <% if current_user %>
+  <li><%= link_to 'Sign Out', destroy_user_session_path,method: :delete %></li>
+  <%else%>
+  <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+  <li><%= link_to 'Sign In', new_user_session_path %></li>
+<%end%>
 
 </ul>
   </header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <main>
     <%= yield %>
 </main>

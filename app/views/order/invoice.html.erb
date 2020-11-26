@@ -1,9 +1,10 @@
 <br>
 <br>
 <h2>Address details </h2>
-<p>Name: <%= session[:name]%> </p>
-<p>Email: <%= session[:email]%> </p>
-<p>Address: <%= session[:address]%> </p>
+<p>Name: <%= @customer.name%> </p>
+<p>Email: <%= @customer.email%> </p>
+<p>Address: <%= @customer.address%> </p>
+<p>Province: <%=@customer.province.name%> </p>
 <h2>Product Details</h2>
 <%if cart.present? %>
  <tr>
@@ -15,6 +16,7 @@
 <tr>
     <td><%= product.name %></td>
     <td><%= product.price %></td>
+
     </tr>
     <%end%>
    <%end%>
