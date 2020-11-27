@@ -12,6 +12,8 @@ helper_method :cart
   end
 
   def cart
-    Product.find(session[:shopping_cart])
+    if session[:shopping_cart]!= ""
+      Product.find(session[:shopping_cart])
   end
+end
 end

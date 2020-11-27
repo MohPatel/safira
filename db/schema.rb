@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_004937) do
+ActiveRecord::Schema.define(version: 2020_11_27_230023) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "titile"
@@ -86,11 +86,26 @@ ActiveRecord::Schema.define(version: 2020_11_26_004937) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "customers" because of following StandardError
-#   Unknown type '' for column 'province'
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "province_id", null: false
+    t.integer "user_id", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+  end
 
-# Could not dump table "orders" because of following StandardError
-#   Unknown type '' for column 'customer'
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "totalamount", precision: 8, scale: 2
+    t.integer "customer_id", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
 
   create_table "product_orders", force: :cascade do |t|
     t.integer "quantity"
@@ -136,6 +151,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_004937) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "customers", "provinces"
+  add_foreign_key "customers", "users"
   add_foreign_key "orders", "customers"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"

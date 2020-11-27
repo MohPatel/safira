@@ -13,6 +13,10 @@ class CartController < ApplicationController
     redirect_to root_path
   end
 
+  # { 45 => 12, 12 => 1 }
+
+  # [ { id: 45, quantity: 12}, { id: 12, quantity: 1} ]
+
   def destroy
     id = params[:id].to_i
     session[:shopping_cart].delete(id)

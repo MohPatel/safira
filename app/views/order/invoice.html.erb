@@ -1,13 +1,16 @@
 <br>
 <br>
 <h2>Address details </h2>
-<p>Name: <%= @customer.name%> </p>
-<p>Email: <%= @customer.email%> </p>
-<p>Address: <%= @customer.address%> </p>
+<table>
+<tr><td>Name: </td><td><%= @customer.name%> <td></tr>
+<tr><td>Email: </td><td><%= @customer.email%> <td></tr>
+<tr><td>Address:</td><td> <%= @customer.address%> <td></tr>
 <p>Province: <%=@customer.province.name%> </p>
+</table>
 <h2>Product Details</h2>
 <%if cart.present? %>
- <tr>
+<table>
+  <tr>
    <th>Product</th>
    <th></th>
    <th></th>
@@ -15,8 +18,23 @@
 <% cart.each do |product|%>
 <tr>
     <td><%= product.name %></td>
-    <td><%= product.price %></td>
+     <td><%= product.price %></td>
 
-    </tr>
-    <%end%>
-   <%end%>
+</tr>
+<%end%>
+ <tr>
+  <td>GST</td>
+  <td><%= @customer.province.gst%>%</td>
+  </tr>
+  <td>PST</td>
+  <td><%= @customer.province.pst%>%</td>
+  </tr>
+<% @customer.orders.each do |order| %>
+<tr>
+<td>Total Amount with including tax</td>
+<td><%= order.totalamount%></td>
+</tr>
+<%end%>
+<%end%>
+  </table>
+
