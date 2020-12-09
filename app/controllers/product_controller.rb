@@ -10,6 +10,7 @@ class ProductController < ApplicationController
   def show
     @products = Product.find(params[:id])
   end
+
   def filter
  end
 end
