@@ -6,6 +6,5 @@ class ProductController < ApplicationController
     @products = Product.find(params[:id])
   end
   def filter
-
-  end
+ end
 end
