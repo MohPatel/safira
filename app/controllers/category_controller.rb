@@ -12,7 +12,6 @@ class CategoryController < ApplicationController
   def find_products
     wildcard_search = "%#{params[:keywords]}%"
     category_id = params[:category_id]
-    # products = Product.where("name Like ?", wildcard_search)
     if params[:category_id]!= ""
       products = Product.where(category_id: category_id)
       products =  products.where("name Like ?", wildcard_search)
@@ -20,5 +19,4 @@ class CategoryController < ApplicationController
       products = Product.where("name Like ?", wildcard_search)
   end
 end
-
 end
