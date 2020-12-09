@@ -1,6 +1,13 @@
 
 <br>
+<<<<<<< HEAD
 
+=======
+<%= form_with(url: product_filter_path, method: :get, local: true) do |form|%>
+  <%= form.collection_select :items, ["Ratings High to Low", "Ratings Low to High"],include_blank: true %>
+  <%= submit_tag("filter") %>
+  <% end %>
+>>>>>>> active_admin
 <br>
 <h2>Safira Watches</h2>
 <br>

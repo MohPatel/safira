@@ -1,7 +1,5 @@
 class WelcomeController < ApplicationController
   add_breadcrumb "home", :root_path
-
-
   def index
     @categories = Category.all.page(params[:page])
   end
