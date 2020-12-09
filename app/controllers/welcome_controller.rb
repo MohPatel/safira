@@ -3,6 +3,5 @@ class WelcomeController < ApplicationController
     @categories = Category.all.page(params[:page])
   end
   def about
-
   end
 end
