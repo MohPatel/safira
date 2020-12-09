@@ -30,7 +30,6 @@ class OrderController < ApplicationController
         logger.debug("****************#{@sum} ")
         order = customer.orders.create(totalamount: @sum, status: "Pending")
         cart.each do |product|
-
            ProductOrder.create(product: product, order: order)
         end
       end
@@ -43,11 +42,7 @@ class OrderController < ApplicationController
       logger.debug("****************#{current_user.id} ")
       @customer = Customer.last
       logger.debug("****************#{@customer}****** ")
-      # @customer.orders.each do |order|
-      #   order.product_orders.each do |product_order|
-      #   end
-      # end
-      end
+     end
 
     end
 
