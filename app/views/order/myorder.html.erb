@@ -1,0 +1,31 @@
+<br>
+<br>
+<% if @customers.nil?  %>
+<p>There is no any products</p>
+<% else %>
+<P>All ordered details</p>
+<% @customers.each do |cus|%>
+
+ <% cus.orders.each do |o|%>
+ <table>
+<% o.product_orders.each do |product_order|%>
+  <tr>
+  <td><%= product_order.product.name %></td>
+   <td>$<%= product_order.product.price %></td>
+  </tr>
+
+<%end%>
+<tr>
+<td>Total amount with including tax</td>
+<td>$<%= o.totalamount %></td>
+</tr>
+<tr><td>Province(<%= cus.province.name %>)</td></tr>
+<tr><td>GST</td><td><%= cus.province.gst%>%</td></tr>
+<tr><td>PST</td><td><%= cus.province.pst%>%</td></tr>
+</table>
+ <%end%>
+<br>
+<br>
+<%end%>
+
+<% end %>

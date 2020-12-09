@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   get 'product/filter'
   get 'welcome/about'
   get 'cart/show'
+  get 'order/myorder'
   get 'order/create'
   get 'order/invoice'
+
+
   root 'product#index'
 
 resources :product
@@ -27,4 +30,8 @@ resources :product
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_scope :user do
+  get '/users/sign_out' => 'devise/sessions#destroy'
+end
 end

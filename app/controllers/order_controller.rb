@@ -51,6 +51,12 @@ class OrderController < ApplicationController
 
     end
 
+    def myorder
+      if current_user
+        @customers = Customer.where(user_id: current_user.id)
+      end
+    end
+
   private
   def totalamount
     sum = 0

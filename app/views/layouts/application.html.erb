@@ -22,6 +22,7 @@
   <li><%= link_to 'About', welcome_about_path %></li>
   <li><%= link_to 'Contact', welcome_contact_path %></li>
   <% if current_user %>
+  <li><%= link_to 'MyOrder',order_myorder_path%><li>
   <li><%= link_to 'Sign Out', destroy_user_session_path,method: :delete %></li>
   <%else%>
   <li><%= link_to 'Sign Up', new_user_registration_path %></li>
